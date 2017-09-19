@@ -1,31 +1,29 @@
 import React from "react";
 import PostList from './PostList';
 import NewPostControl from './NewPostControl';
+import { connect } from "react-redux";
 
 class Forum extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      masterPostList: [],
-    };
-    this.addNewPostToList = this.addNewPostToList.bind(this);
   }
 
-  addNewPostToList(newPost){
-    var newMasterPostList = this.state.masterPostList.slice();
-      newMasterPostList.push(newPost);
-      this.setState({masterPostList: newMasterPostList});
-  }
   render(){
     return (
       <div>
         <PostList
-          postList = {this.state.masterPostList}/>
-        <NewPostControl onNewPostCreation= {this.addNewPostToList}/>
+          postList = {this.props.masterPostList}/>
+        <NewPostControl/>
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  console.log(state);
+    return {
+      masterPostList : state
+    }
+}
 
-export default Forum;
+export default connect(mapStateToProps) (Forum);

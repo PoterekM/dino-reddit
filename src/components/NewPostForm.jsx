@@ -1,14 +1,13 @@
 import React from "react";
-import Post from "../models/Post.js";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import c from './../constants';
+import Moment from "moment";
 
 class NewPostForm extends React.Component {
 
   constructor(props){
     super(props);
-    console.log(props)
     this.handleNewPostFormSubmission = this.handleNewPostFormSubmission.bind(this);
   }
 
@@ -22,11 +21,9 @@ class NewPostForm extends React.Component {
     userName: _userName.value,
     title: _title.value,
     content: _content.value,
-    timeOpened: new Date().getTime()
+    date: new Moment()
   }
   dispatch(action);
-    var newPost = new Post(_userName.value, _title.value, _content.value);
-    this.props.onNewPostCreation(newPost);
     this.props.hideFormAfterSubmission();
   }
 
@@ -56,7 +53,6 @@ class NewPostForm extends React.Component {
 }
 
 NewPostForm.propTypes = {
-  onNewPostCreation: PropTypes.func,
   hideFormAfterSubmission: PropTypes.func
 
 }

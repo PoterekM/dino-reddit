@@ -8,7 +8,9 @@ class NewPostControl extends React.Component {
     super(props);
     this.showForm = this.showForm.bind(this);
     this.hideForm = this.hideForm.bind(this);
-    this.state = {formIsVisibleOnPage: false};
+    this.state = {
+      formIsVisibleOnPage: false
+    };
   }
 
   showForm() {
@@ -19,32 +21,22 @@ class NewPostControl extends React.Component {
     this.setState({formIsVisibleOnPage: false});
   }
 
-    handleDisplayingNewPostForm(event){
-      this.setState({formIsVisibleOnPage: true});
-     console.log("New ticket button was clicked!");
-   }
-
-   render(){
+  render(){
     const formIsVisibleOnPage = this.state.formIsVisibleOnPage;
     let formAreaContent = null;
     if (this.state.formIsVisibleOnPage){
       formAreaContent = <NewPostForm
-        onNewPostCreation= {this.props.onNewPostCreation}
         hideFormAfterSubmission = {this.hideForm}/>
     } else {
-       formAreaContent = <button onClick={this.showForm}>New Post</button>;
-    }
-
-    return (
-      <div>
-        {formAreaContent}
-      </div>
-    );
+      formAreaContent = <button onClick={this.showForm}>New Post</button>;
   }
-}
 
-NewPostControl.propTypes = {
-  onNewPostCreation: PropTypes.func
+  return (
+    <div>
+      {formAreaContent}
+    </div>
+  );
+  }
 }
 
 export default NewPostControl;
