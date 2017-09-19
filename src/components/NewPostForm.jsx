@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import c from './../constants';
 import Moment from "moment";
+import { v4 } from 'uuid';
 
 class NewPostForm extends React.Component {
 
@@ -17,12 +18,13 @@ class NewPostForm extends React.Component {
   const { dispatch } = this.props;
   const action = {
     type: c.ADD_POST,
-    id: null,
+    id: v4(),
     userName: _userName.value,
     title: _title.value,
     content: _content.value,
     date: new Moment()
   }
+  console.log(action.id);
   dispatch(action);
     this.props.hideFormAfterSubmission();
   }

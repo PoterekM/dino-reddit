@@ -11,7 +11,7 @@ function PostList(props){
           title={post.title}
           content={post.content}
           date={post.date}
-          key={index}/>
+          key={post.id}/>
       )}
     </div>
   );
