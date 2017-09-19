@@ -14,7 +14,7 @@ class NewPostForm extends React.Component {
   const { _userName, _title, _content } = this.refs;
   var newPost = new Post(_userName.value, _title.value, _content.value);
   this.props.onNewPostCreation(newPost);
-    console.log(newPost);
+  this.props.hideFormAfterSubmission();
   }
 
   render() {
@@ -43,6 +43,8 @@ class NewPostForm extends React.Component {
 }
 
 NewPostForm.propTypes = {
-  onNewPostCreation: PropTypes.func
+  onNewPostCreation: PropTypes.func,
+  hideFormAfterSubmission: PropTypes.func
+
 }
 export default NewPostForm;

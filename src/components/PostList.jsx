@@ -10,6 +10,7 @@ function PostList(props){
           userName={post.userName}
           title={post.title}
           content={post.content}
+          date={post.date}
           key={index}/>
       )}
     </div>
