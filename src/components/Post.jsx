@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Moment from "moment";
+import Vote from "./Vote";
 
 function Post(props){
   var time = props.date.format("MMM Do 'YY, h:mm:ss a")
@@ -9,11 +9,11 @@ function Post(props){
       <h3>{props.title} by {props.userName}</h3>
       <p>{props.content}</p>
       <p>Posted: {time}</p>
+      <Vote/>
       <hr/>
     </div>
   );
 }
-
 
 Post.propTypes = {
   userName: PropTypes.string.isRequired,
