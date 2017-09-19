@@ -4,7 +4,7 @@ import c from './../../src/constants';
 describe("Post list reducer", () => {
   let action;
   const postInfo = {
-    userName: 'userName'
+    userName: 'userName',
     title : "I love dino blogz",
     content : "Jest is being a diva and won't work well with webpack",
     timeOpened : 1500000000000,
