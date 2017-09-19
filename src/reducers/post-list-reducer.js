@@ -16,14 +16,13 @@ export default (state = [], action) => {
     case 'UP_VOTE':
     let newState = state.slice();
     newState = {
-      userName : state.userName,
-      title : state.title,
-      content : state.content,
-      date : state.date,
-      voteTotal : state.voteTotal + 1,
-      id : state.id
+      userName : newState.userName,
+      title : newState.title,
+      content : newState.content,
+      date : newState.date,
+      voteTotal : newState.voteTotal + 1,
+      id : newState.id
     }
-    console.log(voteTotal);
     return newState
     default:
     return state
