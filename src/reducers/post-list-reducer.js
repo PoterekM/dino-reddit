@@ -1,3 +1,18 @@
 export default (state = [], action) => {
-  return state;
+  switch (action.type) {
+    case 'ADD_POST':
+    const { userName, title, content, timeOpened, id } = action;
+    return [
+      ...state,
+      {
+        userName : userName,
+        title : title,
+        content : content,
+        timeOpened : timeOpened,
+        id: id
+      }
+    ]
+    default:
+    return state
+  }
 }
